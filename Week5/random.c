@@ -4,7 +4,7 @@
 
 int main(void) {
     // Seed the random number generator with the current time
-    srand((unsigned int)time(NULL));
+
 
     // Generate a random number (unbounded)
     int randomValue = rand();
