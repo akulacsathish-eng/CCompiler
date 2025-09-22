@@ -4,7 +4,7 @@
 
 int main(void) {
     // Seed the random number generator with the current time
-
+    srand(time(NULL)); 
 
     // Generate a random number (unbounded)
     int randomValue = rand();
@@ -13,7 +13,7 @@ int main(void) {
     // Generate a random number in a specific range (e.g., between 1 and 10)
     int lower = 1;
     int upper = 10;
-    int randomInRange = (rand() % (upper - lower + 1)) + lower;
+    int randomInRange = (randomValue % (upper - lower + 1)) + lower;
     printf("Random number between %d and %d: %d\n", lower, upper, randomInRange);
 
     return 0;
