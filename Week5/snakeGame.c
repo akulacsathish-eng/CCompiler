@@ -2,9 +2,9 @@
 #include<stdlib.h>
 #include<time.h>
 
-void main()
+int snake()
 {
-
+    
     int pos =1,newpos, roll, turns=0;
     
     srand(time(NULL));
@@ -44,6 +44,13 @@ void main()
 
     }
     printf("Current pos = %d  Turns = %d", pos,turns);
+    return turns;
+}
 
+void main()
+{
+
+
+int turns= snake();
 
 }
