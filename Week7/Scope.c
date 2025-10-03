@@ -18,7 +18,7 @@ void demoFunction() {
     }
 
   
-    // printf("  blockVar (outside if) = %d\n", blockVar);
+     printf("  blockVar (outside if) = %d\n", blockVar);
 }
 
 int main() {
