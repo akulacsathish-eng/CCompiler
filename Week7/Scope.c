@@ -1,56 +1,39 @@
+#include <stdio.h>
 
-//Ask the user to enter HW grade , Quiz grade & Exam Grade, pass these values to gradeCalc which should calculate the total grade
-//and classify it into A- 90 to 100 B-80 - 89 c - 70 to 79 D- 60 to 69 E- 50 to 59 F < 50 
-#include<stdio.h>
 
-int gradeCalc(int hw,int quiz,int exam)
-{
+int globalVar = 100;
 
-  return (25*hw + 25*quiz + 50*exam)/100;
+void demoFunction() {
+ 
+    int localVar = 200;
+
+    printf("\nInside demoFunction:\n");
+    printf("  globalVar = %d\n", globalVar);   // OK: global accessible here
+    printf("  localVar = %d\n", localVar);     // OK: local to this function
+
+ 
+    if (1) {
+        int blockVar = 300;  // only exists inside this if-block
+        printf("  blockVar (inside if) = %d\n", blockVar);
+    }
+
+  
+    // printf("  blockVar (outside if) = %d\n", blockVar);
 }
 
-int main()
-{
+int main() {
+    printf("Inside main:\n");
+    printf("  globalVar = %d\n", globalVar);   // OK: global accessible here
 
-    int hw, quiz, exam;
+  
+    int mainLocal = 50;
+    printf("  mainLocal = %d\n", mainLocal);
 
-    printf("Enter Homework Grade");
-    scanf("%d",&hw);
+    demoFunction();
 
-    printf("Enter Quiz Grade");
-    scanf("%d",&quiz);
+    // printf("  localVar from demoFunction = %d\n", localVar);
 
-    printf("Enter exam Grade");
-    scanf("%d",&exam);
+    // printf("  blockVar from demoFunction = %d\n", blockVar);
 
-    int result = gradeCalc(hw,quiz,exam);
-    
-    if(result>89 && result <101)
-    {
-        printf("A");
-    }
-    else if(result>79 && result <90)
-    {
-        printf("B");
-    }
-    else if(result>69 && result <80)
-    {
-        printf("C");
-    }
-    else if(result>59 && result <70)
-    {
-        printf("D");
-    }
-    else if(result>49 && result <60)
-    {
-        printf("E");
-    }
-    else if(result<50)
-    {
-        printf("F");
-    }
-    else
-        printf("Invalid");
-
-
+    return 0;
 }

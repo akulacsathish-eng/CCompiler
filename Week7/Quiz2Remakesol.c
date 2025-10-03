@@ -6,10 +6,10 @@ void menu(){
     printf("Menu \n 1.Pizza  - $10\n2. Burger - $7\n3. Pasta  - $8");
 }
 
-int total_cost(int orderCost)
+void total_cost(int orderCost)
 {
     totalC = orderCost + totalC;
-    return totalC;
+   
 }
 int orderC()
 {
@@ -69,8 +69,8 @@ int main()
         }
         else if(ch==3)
         {
-            totalcost= total_cost(0);
-            printf("Total cost =%d",totalcost);
+         
+            printf("Total cost =%d",totalC);
         }
         else
             printf("Invlid Choice");
