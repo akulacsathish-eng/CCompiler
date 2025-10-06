@@ -35,62 +35,75 @@ void choiceDecrypt(int ch)
 
 int main()
 {
-    int  userCh,rch,userWin=0,CompWin=0,ties=0;
-
+    int repeat;
     do
     {
-        printf("Enter number of rounds 5 or 10:");
-        scanf("%d",&rch);
+            int  userCh,rch,userWin=0,CompWin=0,ties=0;
 
-    } while (rch != 5 && rch !=10);
+            do
+            {
+                printf("Enter number of rounds 5 or 10:");
+                scanf("%d",&rch);
 
-    for(int i=0;i<rch;i++)
-    {
-        printf("1. Rock 2.Paper 3. scissors \n");
-        printf("Enter users choice");
-        scanf("%d",&userCh);
+            } while (rch != 5 && rch !=10);
 
-        int comCh = getComputerChoice();
+            for(int i=0;i<rch;i++)
+            {
+                printf("1. Rock 2.Paper 3. scissors \n");
+                printf("Enter users choice");
+                scanf("%d",&userCh);
 
-        int result = decideWinner(userCh,comCh);
+                int comCh = getComputerChoice();
 
-        printf("User plays");
-        choiceDecrypt(userCh);
+                int result = decideWinner(userCh,comCh);
 
-        printf("Computer plays");
-        choiceDecrypt(comCh);
-        printf("\n");
+                printf("User plays");
+                choiceDecrypt(userCh);
 
-        if( result ==0 )
+                printf("Computer plays");
+                choiceDecrypt(comCh);
+                printf("\n");
+
+                if( result ==0 )
+                {
+                    printf("Its a tie\n");
+                    ties++;
+                }
+                else if(result ==1)
+                {
+                    printf("User wins\n");
+                    userWin++;
+                }
+                else    
+                {
+                    printf("Computer wins\n");
+                    CompWin++;
+                }
+
+                // Break early
+                if ((CompWin>=(rch/2+1))||(userWin>=(rch/2+1)))
+                {
+                    break;
+                }
+
+            }
+            
+        printf("=== Final Results ===\n");
+
+            printf("You: %d  Computer: %d  Ties: %d",userWin,CompWin,ties);
+
+        if(userWin>CompWin)
         {
-            printf("Its a tie\n");
-            ties++;
+            printf("\nUser wins the match!");
         }
-        else if(result ==1)
+        else if(CompWin>userWin)
         {
-            printf("User wins\n");
-            userWin++;
+            printf("\nComputer wins the match!");
         }
-        else    
-        {
-            printf("Computer wins\n");
-            CompWin++;
-        }
+        else
+            printf("\nIts a tie super rare!");
 
-    }
-    
-   printf("=== Final Results ===\n");
-
-    printf("You: %d  Computer: %d  Ties: %d",userWin,CompWin,ties);
-
-  if(userWin>CompWin)
-  {
-    printf("\nUser wins the match!");
-  }
-  else if(CompWin>userWin)
-  {
-    printf("\nComputer wins the match!");
-  }
-  else
-    printf("\nIts a tie super rare!");
+    printf("\nDo you want to continue? 1 for Y or 0 for N");
+    scanf("%d",&repeat);
+    }while(repeat);
 }
