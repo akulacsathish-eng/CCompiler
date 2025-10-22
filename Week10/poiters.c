@@ -1,16 +1,22 @@
+#include<stdio.h>
+
 int main()
 {
 
-    int score =50;
-    int *score_ptr = &score;
-//or
-    score_ptr = &score ;
+    int val =5;
+    int *val_ptr = &val;
 
-    *score_ptr = 100;
-    int y= *score_ptr;
+    printf("The address of val = %p \n",);
+    printf("The address of val_ptr = %p\n",);
+    printf("The vlaue stored in val_ptr %p\n",);
+    printf("The value stored in ptr = %d\n",);
 
+    char vala ='a';
+    char *val_ptra = &vala;
 
-    printf("The value stored in ptr = %d",score);
-
+    printf("The address of val = %p\n", );
+    printf("The address of val_ptr = %p\n",);
+    printf("The vlaue stored in val_ptr %p\n",);
+    printf("The value stored in ptr = %c\n",);
 
 }
