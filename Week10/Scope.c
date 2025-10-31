@@ -1,31 +1,22 @@
 #include <stdio.h>
+  
+int main(void) {
+    int a = 4, b = 7, c = 12;
+    int *p = &a;
+    int *q = &b;
+    int *r = p;   // Now r is a simple pointer, not a pointer to pointer
 
-// Global variable
-int x = 10;
+    *p = *q + 3;      // (1)
+    r = q;            // (2)
+    *r = a + c;       // (3)
+    q = &c;           // (4)
+    *p = *q - 2;      // (5)
+    *r = b - a;       // (6)
+    r = &a;           // (7)
+    *q = *r + b;      // (8)
 
-// Function prototype
-void func();
+    printf("a = %d, b = %d, c = %d\n", a, b, c);
+    printf("*p = %d, *q = %d, *r = %d\n", *p, *q, *r);
 
-int main() {
-    int x = 20; // Local to main
-    printf("Inside main (before block): x = %d\n", x);
-
-    {
-        int x = 30; // Block scope — shadows main’s x
-        printf("Inside block: x = %d\n", x);
-    }
-
-    printf("Inside main (after block): x = %d\n", x);
-
-    func(); // Call function that uses global x
-
-    printf("Inside main (after func): x = %d\n", x);
     return 0;
-}
-
-// Function definition
-void func() {
-    printf("Inside func (before change): x = %d\n", x);
-    x = x + 5; // Modifies global x
-    printf("Inside func (after change): x = %d\n", x);
 }
