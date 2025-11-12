@@ -28,7 +28,7 @@ int main() {
 
     printf("===== PASSWORD MANAGER =====\n");
 
-    // Step 1: Set initial password (outside menu)
+    //set initial password 
     while (1) {
         printf("Set your initial password: ");
         scanf("%s", password);
@@ -41,7 +41,7 @@ int main() {
         }
     }
 
-    // Step 2: Menu
+    //  Menu
     while (1) {
         printf("\n===== MAIN MENU =====\n");
         printf("1. Login\n");
