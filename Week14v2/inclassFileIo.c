@@ -83,8 +83,7 @@ int main() {
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        // clear input buffer
-        getchar();
+      
 
         switch (choice) {
             case 1:
